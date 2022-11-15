@@ -1,6 +1,6 @@
 # unlocker-EX
 Script to remove sheet protection from excel files
-en-US:
+- en-US:
 
 -> Excel Workbooks Structure
 - Uses Open Office XML File Format
@@ -30,7 +30,7 @@ en-US:
 	- Change the extension to be the same as the original file, .xlsx for example.
 
 -----------------------------------------------------------------------------------------------------------------------------
-pt-Br:
+- pt-Br:
 
 
 -> Estrutura dos Workbooks de Excel
