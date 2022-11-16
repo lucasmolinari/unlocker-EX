@@ -1,5 +1,10 @@
 from functions import *
 
+try:
+    shutil.rmtree('./_copies')
+except Exception as ex:
+    print(ex)
+
 for file in os.scandir('.'):
     if file.is_file():
         file_name, file_extension = os.path.splitext(file)
