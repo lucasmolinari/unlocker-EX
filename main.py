@@ -1,9 +1,6 @@
 from functions import *
 
-try:
-    shutil.rmtree('./_copies')
-except Exception as ex:
-    pass
+delete_copies()
 
 check_xls()
 for file in os.scandir('.'):
@@ -32,9 +29,6 @@ for file in os.scandir('.'):
                 zipfolder(file_name, path, file_extension)
                 print('EXTRACTION PATH: ' + path)
 
-try:
-    shutil.rmtree('./_copies')
-except Exception as ex:
-    print(ex)
+delete_copies()
 
 input("\n[PROCESS COMPLETED]")
