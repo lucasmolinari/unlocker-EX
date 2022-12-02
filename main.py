@@ -3,8 +3,9 @@ from functions import *
 try:
     shutil.rmtree('./_copies')
 except Exception as ex:
-    print(ex)
+    pass
 
+check_xls()
 for file in os.scandir('.'):
     if file.is_file():
         file_name, file_extension = os.path.splitext(file)
@@ -21,15 +22,19 @@ for file in os.scandir('.'):
                 sheets_path = path + r'\xl\worksheets'
                 # Loop through each file from the path 'sheets_path'
                 for sheet in os.scandir(sheets_path):
-                    convert_file(sheet, '.txt')
+                    if sheet.is_file():
+                        convert_file(sheet, '.txt')
                 for sheet in os.scandir(sheets_path):
-                    remove_sheet_protection(sheet)
-                    convert_file(sheet, '.xml')
+                    if sheet.is_file():
+                        remove_sheet_protection(sheet)
+                        convert_file(sheet, '.xml')
 
                 zipfolder(file_name, path, file_extension)
                 print('EXTRACTION PATH: ' + path)
 
+try:
+    shutil.rmtree('./_copies')
+except Exception as ex:
+    print(ex)
 
-print('[DELETING EXTRA FOLDERS]')
-shutil.rmtree('./_copies')
 input("\n[PROCESS COMPLETED]")
