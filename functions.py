@@ -3,7 +3,7 @@ import shutil
 from zipfile import ZipFile
 
 
-# Looks for xls files in the script folder
+# Looks for .xls* files in the script folder
 def check_xls():
     print('[LOOKING FOR XLS FILE]')
     xls_files = []
@@ -11,14 +11,14 @@ def check_xls():
         if file.path[-4:] == 'xlsx' or file.path[-4:] == 'xlsm' and file.is_file():
             xls_files.append(file)
     if not xls_files:
-        print('No .xls file found.')
+        print('No .xls* file found.')
         input()
         quit()
     else:
         print(xls_files)
 
 
-
+# Copies the .xls* files to a new folder
 def copy_xls(xls, xls_name, xls_extension):
     print('\n[WORKING ON]\nName: %s \nExtension: %s' % (xls_name, xls_extension))
     os.makedirs('./_copies', exist_ok=True)
@@ -29,6 +29,7 @@ def copy_xls(xls, xls_name, xls_extension):
     return copy_path
 
 
+# Converts a file to another extension
 def convert_file(file, extension):
     file_name, file_extension = os.path.splitext(file)
     print('[CONVERTING FILE %s TO %s]' % (file_name, extension))
@@ -36,6 +37,7 @@ def convert_file(file, extension):
     print('[DONE]')
 
 
+# Unzip a file
 def unzip_files(file):
     extract_paths = []
 
@@ -54,6 +56,7 @@ def unzip_files(file):
     return extract_paths
 
 
+# Removes the tag <sheetProtection>
 def remove_sheet_protection(sheet):
     print('[REMOVING EXISTING PROTECTIONS]')
     if sheet.is_file():
@@ -85,6 +88,7 @@ def remove_sheet_protection(sheet):
         fout.close()
 
 
+# Zips the files and converts to .xls* again
 def zipfolder(foldername, target_dir, extension):
     zipobj = ZipFile(foldername + '_unlocked' + extension, 'w')
     rootlen = len(target_dir) + 1
@@ -92,3 +96,11 @@ def zipfolder(foldername, target_dir, extension):
         for file in files:
             fn = os.path.join(base, file)
             zipobj.write(fn, fn[rootlen:])
+
+
+# Tries to remove the ./copies folder
+def delete_copies():
+    try:
+        shutil.rmtree('./copies')
+    except Exception:
+        pass
