@@ -11,13 +11,12 @@ def check_xls():
         if file.path[-4:] == 'xlsx' or file.path[-4:] == 'xlsm' and file.is_file():
             xls_files.append(file)
     if not xls_files:
-        print('No .xlsx file found.')
-        shutil.rmtree('./_copies')
+        print('No .xls file found.')
         input()
         quit()
     else:
-        print('.xlsx/.xlsm found: %s' % xls_files)
-        return xls_files
+        print(xls_files)
+
 
 
 def copy_xls(xls, xls_name, xls_extension):
@@ -60,7 +59,7 @@ def remove_sheet_protection(sheet):
     if sheet.is_file():
         sections = []
         unprotected_sections = []
-        with open(sheet.path) as fin:
+        with open(sheet.path, encoding='utf-8') as fin:
             for line in fin:
                 sections.append(line.split('>'))
 
@@ -79,7 +78,8 @@ def remove_sheet_protection(sheet):
             unprotected_sections.remove('>')
         print(unprotected_sections)
 
-        with open(sheet.path, 'w+') as fout:
+        # Writes a new file to replace the original
+        with open(sheet.path, 'w+', encoding='utf-8') as fout:
             for section in unprotected_sections:
                 fout.write(section)
         fout.close()
