@@ -3,10 +3,10 @@ Script to remove sheet protection from excel files
 
 - en-US:
 - How to use:
-  - Download main.py and functions.py
-  - Create a folder containg the .py files and the Excel Workbooks you want to unlock.
-  - Run main.py
-  - The original workbooks won't be changed, a unlocked copy will be available in the same folder when the process is finished.
+  - Download all the files, including subfolders
+  - Run 'main.py'
+  - Select the workbook and press 'unlock'
+  - The original workbooks won't be changed, in the end of the process you can choose where the unlocked workbook can be saved.
 
 
 
@@ -24,10 +24,10 @@ Script to remove sheet protection from excel files
 - pt-Br:
 
 - Como usar:
-  - Faça download dos arquivos main.py e functions.py
-  - Crie um diretório contendo ambos .py e os arquivos excel que deseja desbloquear.
+  - Faça download de todos os arquivos, incluindo as subpastas.
   - Execute main.py
-  - Os arquivos originais não serão afetados, uma cópia dos Workbooks estarão disponíveis no mesmo diretório.
+  - Selecione a planilha e clique em 'unlock'.
+  - Os arquivos originais não serão afetados, no final do processo você pode escolher onde salvar a planilha desbloqueada.
   
 
 - Estrutura dos Workbooks de Excel
