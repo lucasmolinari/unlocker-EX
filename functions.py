@@ -19,12 +19,15 @@ def check_xls():
 
 
 # Copies the .xls* files to a new folder
-def copy_xls(xls, xls_name, xls_extension):
+def copy_xls(xls_path, index=0):
+    _, tail = os.path.split(xls_path)
+    xls_name, xls_extension = os.path.splitext(tail)
     print('\n[WORKING ON]\nName: %s \nExtension: %s' % (xls_name, xls_extension))
-    os.makedirs('./_copies', exist_ok=True)
+    os.makedirs('../_copies', exist_ok=True)
     print('[COPYING FILE]')
-    copy_path = '_copies\\' + xls_name + '_copy' + xls_extension
-    shutil.copyfile(xls.path, copy_path)
+    copy_path = '../_copies/' + xls_name + '_copy' + str(index) + xls_extension
+    print(copy_path)
+    shutil.copyfile(xls_path, copy_path)
     print('[COPIED]')
     return copy_path
 
@@ -39,8 +42,6 @@ def convert_file(file, extension):
 
 # Unzip a file
 def unzip_files(file):
-    extract_paths = []
-
     # creating a directory for each file
     zip_name, zip_extension = os.path.splitext(file)
     os.makedirs(zip_name)
@@ -52,7 +53,7 @@ def unzip_files(file):
         zip.extractall(path=zip_name)
         print('[EXTRACTION COMPLETE]\n')
 
-        extract_paths.append(zip_name)
+        extract_paths = zip_name
     return extract_paths
 
 
@@ -101,6 +102,6 @@ def zipfolder(foldername, target_dir, extension):
 # Tries to remove the ./copies folder
 def delete_copies():
     try:
-        shutil.rmtree('./copies')
+        shutil.rmtree('../_copies')
     except Exception:
         pass
