@@ -3,21 +3,6 @@ import shutil
 from zipfile import ZipFile
 
 
-# Looks for .xls* files in the script folder
-def check_xls():
-    print('[LOOKING FOR XLS FILE]')
-    xls_files = []
-    for file in os.scandir('.'):
-        if file.path[-4:] == 'xlsx' or file.path[-4:] == 'xlsm' and file.is_file():
-            xls_files.append(file)
-    if not xls_files:
-        print('No .xls* file found.')
-        input()
-        quit()
-    else:
-        print(xls_files)
-
-
 # Copies the .xls* files to a new folder
 def copy_xls(xls_path, index=0):
     _, tail = os.path.split(xls_path)
@@ -48,9 +33,9 @@ def unzip_files(file):
     print('Folder created: ' + zip_name)
     print(zip_name, zip_extension)
 
-    with ZipFile(zip_name + '.zip', 'r') as zip:
+    with ZipFile(zip_name + '.zip', 'r') as zip_file:
         print('[EXTRACTING]')
-        zip.extractall(path=zip_name)
+        zip_file.extractall(path=zip_name)
         print('[EXTRACTION COMPLETE]\n')
 
         extract_paths = zip_name
@@ -90,8 +75,8 @@ def remove_sheet_protection(sheet):
 
 
 # Zips the files and converts to .xls* again
-def zipfolder(foldername, target_dir, extension):
-    zipobj = ZipFile(foldername + '_unlocked' + extension, 'w')
+def zipfolder(folder_name, target_dir, extension):
+    zipobj = ZipFile(folder_name + '_unlocked' + extension, 'w')
     rootlen = len(target_dir) + 1
     for base, dirs, files in os.walk(target_dir):
         for file in files:
@@ -99,9 +84,9 @@ def zipfolder(foldername, target_dir, extension):
             zipobj.write(fn, fn[rootlen:])
 
 
-# Tries to remove the ./copies folder
+# Tries to remove the ../copies folder
 def delete_copies():
     try:
         shutil.rmtree('../_copies')
-    except Exception:
-        pass
+    except Exception as e:
+        print(e)
