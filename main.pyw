@@ -1,6 +1,6 @@
 import sys
-from functions import *
 from gui.pythongui import *
+from functions import *
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 
 
@@ -8,7 +8,7 @@ class UnlockerEX(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         super().setupUi(self)
-        # self.progressBar.setTextVisible(False)
+        self.unlocked = False
         self.buttonChooseFile.clicked.connect(self.open_file)
         self.buttonUnlock.clicked.connect(self.unlock)
         self.buttonSave.clicked.connect(self.save)
@@ -16,6 +16,7 @@ class UnlockerEX(QMainWindow, Ui_MainWindow):
         self.file_name = None
         self.extraction_path = None
         self.file_extension = None
+        self.previous_file = None
         # index used in the creation of folders. preventing the names to be equal.
         self.index = 0
 
@@ -37,7 +38,7 @@ class UnlockerEX(QMainWindow, Ui_MainWindow):
 
     def unlock(self):
         file = self.inputOpenFile.text()
-        if self.inputOpenFile.text():
+        if self.inputOpenFile.text() and file != self.previous_file:
             self.process_text = '[STARTING UNLOCK PROCESS]'
             self.labelProcess.setText(self.process_text)
             self.progressBar.setValue(3)
@@ -79,20 +80,24 @@ class UnlockerEX(QMainWindow, Ui_MainWindow):
             self.index += 1
             self.process_text += '\n[PROCESS FINISHED]\n[PRESS SAVE]'
             self.labelProcess.setText(self.process_text)
+            self.unlocked = True
+            self.previous_file = file
 
     def save(self):
         try:
             # get the directory where the user wants to save the file
-            if self.inputOpenFile.text():
+            if self.unlocked:
+                head, tail = os.path.split(self.file_name)
                 path = QFileDialog.getExistingDirectory(
                     self.centralwidget,
                     'Save File',
-                    '../'
+                    head
                 )
-                head, tail = os.path.split(self.file_name)
                 # zips the Excel files back where user wants to save it.
-                print(path, tail)
+                print('\nPATH: %s TAIL: %s' % (head, tail))
                 zipfolder(path + '/' + tail, self.extraction_path, self.file_extension)
+                delete_copies()
+
         except Exception as e:
             print(e)
 

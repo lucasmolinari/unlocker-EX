@@ -8,9 +8,9 @@ def copy_xls(xls_path, index=0):
     _, tail = os.path.split(xls_path)
     xls_name, xls_extension = os.path.splitext(tail)
     print('\n[WORKING ON]\nName: %s \nExtension: %s' % (xls_name, xls_extension))
-    os.makedirs('../_copies', exist_ok=True)
+    os.makedirs('./_copies', exist_ok=True)
     print('[COPYING FILE]')
-    copy_path = '../_copies/' + xls_name + '_copy' + str(index) + xls_extension
+    copy_path = './_copies/' + xls_name + '_copy' + str(index) + xls_extension
     print(copy_path)
     shutil.copyfile(xls_path, copy_path)
     print('[COPIED]')
@@ -84,9 +84,9 @@ def zipfolder(folder_name, target_dir, extension):
             zipobj.write(fn, fn[rootlen:])
 
 
-# Tries to remove the ../copies folder
+# Tries to remove the copies folder
 def delete_copies():
     try:
-        shutil.rmtree('../_copies')
+        shutil.rmtree('./_copies')
     except Exception as e:
         print(e)
