@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
--<ui version="4.0">
+<ui version="4.0">
 
 <class>MainWindow</class>
 
 
--<widget name="MainWindow" class="QMainWindow">
+<widget name="MainWindow" class="QMainWindow">
 
 
--<property name="geometry">
+<property name="geometry">
 
 
--<rect>
+<rect>
 
 <x>0</x>
 
@@ -26,30 +26,30 @@
 </property>
 
 
--<property name="windowTitle">
+<property name="windowTitle">
 
 <string>UnlockerEX</string>
 
 </property>
 
 
--<property name="styleSheet">
+<property name="styleSheet">
 
 <string notr="true">background: rgb(85, 170, 127)</string>
 
 </property>
 
 
--<widget name="centralwidget" class="QWidget">
+<widget name="centralwidget" class="QWidget">
 
 
--<widget name="buttonSave" class="QPushButton">
+<widget name="buttonSave" class="QPushButton">
 
 
--<property name="geometry">
+<property name="geometry">
 
 
--<rect>
+<rect>
 
 <x>530</x>
 
@@ -64,10 +64,10 @@
 </property>
 
 
--<property name="font">
+<property name="font">
 
 
--<font>
+<font>
 
 <family>Segoe UI</family>
 
@@ -76,14 +76,14 @@
 </property>
 
 
--<property name="styleSheet">
+<property name="styleSheet">
 
 <string notr="true">background-color: white</string>
 
 </property>
 
 
--<property name="text">
+<property name="text">
 
 <string>Save</string>
 
@@ -92,13 +92,13 @@
 </widget>
 
 
--<widget name="line" class="Line">
+<widget name="line" class="Line">
 
 
--<property name="geometry">
+<property name="geometry">
 
 
--<rect>
+<rect>
 
 <x>-2</x>
 
@@ -113,14 +113,14 @@
 </property>
 
 
--<property name="styleSheet">
+<property name="styleSheet">
 
 <string notr="true"/>
 
 </property>
 
 
--<property name="orientation">
+<property name="orientation">
 
 <enum>Qt::Horizontal</enum>
 
@@ -129,13 +129,13 @@
 </widget>
 
 
--<widget name="label" class="QLabel">
+<widget name="label" class="QLabel">
 
 
--<property name="geometry">
+<property name="geometry">
 
 
--<rect>
+<rect>
 
 <x>9</x>
 
@@ -150,10 +150,10 @@
 </property>
 
 
--<property name="font">
+<property name="font">
 
 
--<font>
+<font>
 
 <family>Segoe UI</family>
 
@@ -168,21 +168,21 @@
 </property>
 
 
--<property name="layoutDirection">
+<property name="layoutDirection">
 
 <enum>Qt::LeftToRight</enum>
 
 </property>
 
 
--<property name="styleSheet">
+<property name="styleSheet">
 
 <string notr="true">center: true</string>
 
 </property>
 
 
--<property name="text">
+<property name="text">
 
 <string>UnlockerEX </string>
 
@@ -191,13 +191,13 @@
 </widget>
 
 
--<widget name="inputOpenFile" class="QLineEdit">
+<widget name="inputOpenFile" class="QLineEdit">
 
 
--<property name="geometry">
+<property name="geometry">
 
 
--<rect>
+<rect>
 
 <x>10</x>
 
@@ -212,14 +212,14 @@
 </property>
 
 
--<property name="styleSheet">
+<property name="styleSheet">
 
 <string notr="true">background-color: white</string>
 
 </property>
 
 
--<property name="readOnly">
+<property name="readOnly">
 
 <bool>true</bool>
 
@@ -228,13 +228,13 @@
 </widget>
 
 
--<widget name="buttonChooseFile" class="QPushButton">
+<widget name="buttonChooseFile" class="QPushButton">
 
 
--<property name="geometry">
+<property name="geometry">
 
 
--<rect>
+<rect>
 
 <x>530</x>
 
@@ -249,10 +249,10 @@
 </property>
 
 
--<property name="font">
+<property name="font">
 
 
--<font>
+<font>
 
 <family>Segoe UI</family>
 
@@ -261,14 +261,14 @@
 </property>
 
 
--<property name="styleSheet">
+<property name="styleSheet">
 
 <string notr="true">background-color: white </string>
 
 </property>
 
 
--<property name="text">
+<property name="text">
 
 <string>Open File</string>
 
@@ -277,13 +277,13 @@
 </widget>
 
 
--<widget name="buttonUnlock" class="QPushButton">
+<widget name="buttonUnlock" class="QPushButton">
 
 
--<property name="geometry">
+<property name="geometry">
 
 
--<rect>
+<rect>
 
 <x>440</x>
 
@@ -298,10 +298,10 @@
 </property>
 
 
--<property name="font">
+<property name="font">
 
 
--<font>
+<font>
 
 <family>Segoe UI</family>
 
@@ -310,14 +310,14 @@
 </property>
 
 
--<property name="styleSheet">
+<property name="styleSheet">
 
 <string notr="true">background-color:rgb(108, 217, 161)</string>
 
 </property>
 
 
--<property name="text">
+<property name="text">
 
 <string>Unlock</string>
 
@@ -326,13 +326,13 @@
 </widget>
 
 
--<widget name="labelProcess" class="QLabel">
+<widget name="labelProcess" class="QLabel">
 
 
--<property name="geometry">
+<property name="geometry">
 
 
--<rect>
+<rect>
 
 <x>9</x>
 
@@ -347,10 +347,10 @@
 </property>
 
 
--<property name="font">
+<property name="font">
 
 
--<font>
+<font>
 
 <family>Segoe UI</family>
 
@@ -365,14 +365,14 @@
 </property>
 
 
--<property name="styleSheet">
+<property name="styleSheet">
 
 <string notr="true">background-color: rgb(0, 0, 0); color: rgb(255, 255, 255)</string>
 
 </property>
 
 
--<property name="text">
+<property name="text">
 
 <string> --CONSOLE--</string>
 
@@ -381,13 +381,13 @@
 </widget>
 
 
--<widget name="progressBar" class="QProgressBar">
+<widget name="progressBar" class="QProgressBar">
 
 
--<property name="geometry">
+<property name="geometry">
 
 
--<rect>
+<rect>
 
 <x>10</x>
 
@@ -402,28 +402,28 @@
 </property>
 
 
--<property name="value">
+<property name="value">
 
 <number>0</number>
 
 </property>
 
 
--<property name="textVisible">
+<property name="textVisible">
 
 <bool>false</bool>
 
 </property>
 
 
--<property name="orientation">
+<property name="orientation">
 
 <enum>Qt::Horizontal</enum>
 
 </property>
 
 
--<property name="textDirection">
+<property name="textDirection">
 
 <enum>QProgressBar::TopToBottom</enum>
 
